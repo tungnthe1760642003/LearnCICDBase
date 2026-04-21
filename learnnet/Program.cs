@@ -44,7 +44,7 @@ using (var scope = app.Services.CreateScope())
                     Price = 999.99m,
                     Stock = 50,
                     CreatedAt = DateTime.UtcNow,
-                    ProductDetail = new learnnet.Entities.ProductDetail
+                    Details = new learnnet.Entities.ProductDetail
                     {
                         Description = "Chiếc iPhone mạnh mẽ nhất với khung Titan.",
                         Manufacturer = "Apple",
@@ -57,7 +57,7 @@ using (var scope = app.Services.CreateScope())
                     Price = 1199.99m,
                     Stock = 30,
                     CreatedAt = DateTime.UtcNow,
-                    ProductDetail = new learnnet.Entities.ProductDetail
+                    Details = new learnnet.Entities.ProductDetail
                     {
                         Description = "Điện thoại AI đỉnh cao với bút S-Pen.",
                         Manufacturer = "Samsung",
