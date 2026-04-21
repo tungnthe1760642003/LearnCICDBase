@@ -1,0 +1,27 @@
+services:
+  server:
+    build:
+      context: .
+      target: final
+    ports:
+      - "5075:8080"
+    depends_on:
+      - db
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=mydb;Username=admin;Password=admin123
+
+  db:
+    image: postgres:16-alpine
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
