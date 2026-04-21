@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using learnnet.Data;
@@ -11,9 +12,11 @@ using learnnet.Data;
 namespace learnnet.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260421114424_InitialTaskSystem")]
+    partial class InitialTaskSystem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,10 +68,7 @@ namespace learnnet.Migrations
 
                     b.HasIndex("Deadline");
 
-                    b.HasIndex("Status")
-                        .HasFilter("\"Status\" != 3");
-
-                    b.HasIndex("Status", "Priority");
+                    b.HasIndex("Status");
 
                     b.ToTable("Tasks");
                 });
